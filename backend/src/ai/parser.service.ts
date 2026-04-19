@@ -14,7 +14,8 @@ export class ParserService {
   private detectLanguage(code: string): string {
     if (code.includes('import React')) return 'react';
     if (code.includes('def ') || code.includes('print(')) return 'python';
-    if (code.includes('interface ') || code.includes(': string')) return 'typescript';
+    if (code.includes('interface ') || code.includes(': string'))
+      return 'typescript';
     return 'javascript';
   }
 }

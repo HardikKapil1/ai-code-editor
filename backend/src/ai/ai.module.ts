@@ -6,6 +6,7 @@ import { ParserService } from './parser.service';
 import { PromptService } from './prompt.service';
 import { ValidationService } from './validation.service';
 import { ExplainService } from './explain.service';
+import { MemoryService } from './memory.service';
 
 @Module({
   controllers: [AiController],
@@ -16,6 +17,7 @@ import { ExplainService } from './explain.service';
     PromptService,
     ValidationService,
     ExplainService,
+    MemoryService,
   ],
 })
 export class AiModule {}

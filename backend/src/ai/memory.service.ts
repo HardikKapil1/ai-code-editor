@@ -4,16 +4,24 @@ import { PromptService } from './prompt.service';
 import { ValidationService } from './validation.service';
 
 @Injectable()
-export class ExplainService {
+export class MemoryService {
+  private memories: any[] = [];
+
   constructor(
     private readonly groqService: GroqService,
     private readonly promptService: PromptService,
     private readonly validationService: ValidationService,
   ) {}
 
-  async explain(files: Record<string, string>) {
-    const prompt = this.promptService.buildExplainPrompt(files);
+  async addMemory(code: string, reason: string, fileName: string) {
+    const prompt = this.promptService.buildMemoryPrompt(code, reason, fileName);
     const raw = await this.groqService.getRawResponse(prompt);
-    return this.validationService.parseAndValidateExplain(raw);
+    const result = this.validationService.parseAndValidateMemory(raw);
+    this.memories.push({ ...result, timestamp: new Date() });
+    return result;
+  }
+
+  getMemories() {
+    return this.memories;
   }
 }
