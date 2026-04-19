@@ -8,6 +8,21 @@ export class GroqService {
     baseURL: 'https://api.groq.com/openai/v1',
   });
 
+  async getRawResponse(prompt: string) : Promise<string> {
+    const response = await this.client.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
+      messages: [
+        {
+          role: 'user',
+          content: prompt,
+        }
+      ],
+      temperature: 0.3,
+    });
+
+    return response.choices[0].message.content ?? '';
+  }
+
   async optimize(code: string) {
     const response = await this.client.chat.completions.create({
       model: 'llama-3.3-70b-versatile',

@@ -1,3 +1,4 @@
+// src/ai/ai.controller.ts
 import { Body, Controller, Post } from '@nestjs/common';
 import { OptimizeService } from './optimize.service';
 
@@ -7,6 +8,6 @@ export class AiController {
 
   @Post('optimize')
   async optimize(@Body() body: any) {
-    return this.optimizeService.optimizeCode(body.code);
+    return this.optimizeService.optimize(body.code);
   }
 }
