@@ -24,7 +24,7 @@ function App() {
     } finally {
       setLoading(false);
     }
-  };
+  }; 
 
   const handleExplain = async () => {
     setLoading(true);
