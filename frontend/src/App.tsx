@@ -3,7 +3,7 @@ import Editor from '@monaco-editor/react';
 import axios from 'axios';
 import CodebaseGraph from './components/CodebaseGraph';
 
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://ai-code-editor-zkso.onrender.com/';
 
 function App() {
   const [code, setCode] = useState('// Write your code here');
