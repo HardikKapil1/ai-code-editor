@@ -5,6 +5,7 @@ import { GroqService } from './grok.service';
 import { ParserService } from './parser.service';
 import { PromptService } from './prompt.service';
 import { ValidationService } from './validation.service';
+import { ExplainService } from './explain.service';
 
 @Module({
   controllers: [AiController],
@@ -14,6 +15,7 @@ import { ValidationService } from './validation.service';
     ParserService,
     PromptService,
     ValidationService,
+    ExplainService,
   ],
 })
 export class AiModule {}
